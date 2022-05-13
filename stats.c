@@ -10,22 +10,22 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     
     int index = 0;
     float sum = 0.0;
-    float large = numberset[0];
-    float small = numberset[0];
+    float large = *(numberset+0);
+    float small = *(numberset+0);
     
     if(setlength != 0)
     {
         for(index = 0;index < setlength; index++)
         {
-            sum = sum + numberset[index];
-            if(numberset[index] > large)
+            sum = sum + *(numberset+index);
+            if(*(numberset+index) > large)
             {
-                large = numberset[index];
+                large = *(numberset+index);
             }
             
-            if(numberset[index] < small)
+            if(*(numberset+index) < small)
             {
-                small = numberset[index];
+                small = *(numberset+index);
             }
         }
         s.average = (sum/setlength);
