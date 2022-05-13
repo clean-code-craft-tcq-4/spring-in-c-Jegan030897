@@ -9,13 +9,11 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     struct Stats s;
     
     int index = 0;
-    int length;
-    float large, small, sum = 0.0;
-    large = numberset[0];
-    small = numberset[0];
-    length = setlength;
+    float sum = 0.0;
+    float large = numberset[0];
+    float small = numberset[0];
     
-    if(length != 0)
+    if(setlength != 0)
     {
         for(index = 0;index < setlength; index++)
         {
