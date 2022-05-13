@@ -18,15 +18,15 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     {
         for(index = 0;index < setlength; index++)
         {
-            sum = sum + numberset[i];
-            if(numberset[i] > large)
+            sum = sum + numberset[index];
+            if(numberset[index] > large)
             {
-                large = numberset[i];
+                large = numberset[index];
             }
             
-            if(numberset[i] < small)
+            if(numberset[index] < small)
             {
-                small = numberset[i];
+                small = numberset[index];
             }
         }
         s.average = (sum/setlength);
