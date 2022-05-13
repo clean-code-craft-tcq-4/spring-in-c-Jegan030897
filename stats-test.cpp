@@ -7,12 +7,12 @@
 #include <math.h>
 
 TEST_CASE("reports average, minimum and maximum") {
-    float numberset[] = {1.5, 9.9, 3.2, 4.5};
+    float numberset[] = {1.5, 8.9, 3.2, 4.5};
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
     struct Stats computedStats = compute_statistics(numberset, setlength);
     float epsilon = 0.001;
-    REQUIRE(abs(computedStats.average - 4.775) < epsilon);
-    REQUIRE(abs(computedStats.max - 9.9) < epsilon);
+    REQUIRE(abs(computedStats.average - 4.5) < epsilon);
+    REQUIRE(abs(computedStats.max - 8.9) < epsilon);
     REQUIRE(abs(computedStats.min - 1.5) < epsilon);
 }
 
