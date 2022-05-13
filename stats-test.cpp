@@ -19,9 +19,9 @@ TEST_CASE("reports average, minimum and maximum") {
 TEST_CASE("average is NaN for empty array") {
     struct Stats computedStats = compute_statistics(0, 0);
     
-    REQUIRE(computedStats.average == NANf);
-    REQUIRE(computedStats.max == NANf);
-    REQUIRE(computedStats.min == NANf);
+    REQUIRE(computedStats.average == nanf(""));
+    REQUIRE(computedStats.max == nanf(""));
+    REQUIRE(computedStats.min == nanf(""));
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
     
