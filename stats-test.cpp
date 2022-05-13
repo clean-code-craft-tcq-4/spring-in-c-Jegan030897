@@ -11,7 +11,7 @@ TEST_CASE("reports average, minimum and maximum") {
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
     struct Stats computedStats = compute_statistics(numberset, setlength);
     float epsilon = 0.001;
-    REQUIRE(abs(computedStats.average - 4.5) < epsilon);
+    REQUIRE(abs(computedStats.average - 4.525) < epsilon);
     REQUIRE(abs(computedStats.max - 8.9) < epsilon);
     REQUIRE(abs(computedStats.min - 1.5) < epsilon);
 }
