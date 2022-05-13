@@ -16,7 +16,7 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     {
         while(length)
         {
-            s.average += *(numberset + i);
+            s.average += *(numberset + index);
             ++index;
             --length;
         }
@@ -24,17 +24,17 @@ struct Stats compute_statistics(const float* numberset, int setlength)
         
         index = 0;
         
-        large = *(numberset + i);
-        small = *(numberset + i);
+        large = *(numberset + index);
+        small = *(numberset + index);
         while(index < setlength-1)
         {
-            if(*(numberset + (i+1)) > large)
+            if(*(numberset + (index+1)) > large)
             {
-                large = *(numberset + (i+1));
+                large = *(numberset + (index+1));
             }
-            if(*(numberset + (i+1)) < small)
+            if(*(numberset + (index+1)) < small)
             {
-                small = *(numberset + (i+1));
+                small = *(numberset + (index+1));
             }
             ++index;
         }
@@ -47,6 +47,7 @@ struct Stats compute_statistics(const float* numberset, int setlength)
         s.max = 0.0/0.0;
         s.min = 0.0/0.0;
     }
+    return s;
     
 }
 
