@@ -8,29 +8,39 @@ struct Stats compute_statistics(const float* numberset, int setlength)
 {
     struct Stats s;
     
-    int index = 0;
+    int i = 0,length;
     float sum = 0.0;
     float large = *(numberset+0);
     float small = *(numberset+0);
+    length = setlength;
     
     if(setlength != 0)
     {
-        for(index = 0;index < setlength; index++)
+        while(length)
         {
-            sum = sum + *(numberset+index);
-            if(*(numberset+index) > large)
+            a.avg += *(numberset + i);
+            ++i;
+            --length;
+        }
+        a.avg = a.avg/setlength;
+        
+        i = 0;
+        
+        large = *(numberset + i);
+        small = *(numberset + i);
+        while(i < setlength-1)
+        {
+            if(*(numberset + (i+1)) > large)
             {
-                large = *(numberset+index);
+                large = *(numberset + (i+1));
             }
             
-            if(*(numberset+index) < small)
+            if(*(numberset + (i+1)) < small)
             {
-                small = *(numberset+index);
+                small = *(numberset + (i+1));
             }
+            ++i;
         }
-        s.average = (sum/setlength);
-        s.max = large;
-        s.min = small;
     }
     else
     {
