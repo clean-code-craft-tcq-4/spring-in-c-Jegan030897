@@ -57,7 +57,7 @@ void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stat
     (*alerters[1])(maxThreshold,computedStats);
 }
 
-alerter_funcptr emailAlerter(float maxThreshold, struct Stats computedStats)
+void emailAlerter(float maxThreshold, struct Stats computedStats)
 {
     if(computedStats.max > maxThreshold)
     {
@@ -65,7 +65,7 @@ alerter_funcptr emailAlerter(float maxThreshold, struct Stats computedStats)
     }
 }
 
-alerter_funcptr ledAlerter(float maxThreshold, struct Stats computedStats)
+void ledAlerter(float maxThreshold, struct Stats computedStats)
 {
     if(computedStats.max > maxThreshold)
     {
