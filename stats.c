@@ -29,7 +29,7 @@ struct Stats compute_statistics(const float* numberset, int setlength)
                 small = numberset[i];
             }
         }
-        s.average = sum;
+        s.average = (sum/setlength);
         s.max = large;
         s.min = small;
     }
