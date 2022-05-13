@@ -9,7 +9,6 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     struct Stats s;
     
     int i = 0,length;
-    float sum = 0.0;
     float large = *(numberset+0);
     float small = *(numberset+0);
     length = setlength;
@@ -18,11 +17,11 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     {
         while(length)
         {
-            a.avg += *(numberset + i);
+            s.average += *(numberset + i);
             ++i;
             --length;
         }
-        a.avg = a.avg/setlength;
+        s.average = (s.average/setlength);
         
         i = 0;
         
@@ -41,6 +40,8 @@ struct Stats compute_statistics(const float* numberset, int setlength)
             }
             ++i;
         }
+        s.max = large;
+        s.min = small;
     }
     else
     {
