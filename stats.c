@@ -10,36 +10,25 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     int index = 0;
     int length;
     float large, small;
+    large = numberset[0];
+    small = numberset[0];
     length = setlength;
     
     if(length != 0)
     {
-        while(length)
+        for(index = 0;index < setlength; index++)
         {
-            s.average += *(numberset + index);
-            ++index;
-            --length;
-        }
-        s.average = (s.average/setlength);
-        
-        index = 0;
-        
-        large = *(numberset + index);
-        small = *(numberset + index);
-        while(index < setlength-1)
-        {
-            if(*(numberset + (index+1)) > large)
+            sum = sum + numberset[i];
+            if(numberset[i] > large)
             {
-                large = *(numberset + (index+1));
+                large = numberset[i];
             }
-            if(*(numberset + (index+1)) < small)
+            
+            if(numberset[i] < small)
             {
-                small = *(numberset + (index+1));
+                small = numberset[i];
             }
-            ++index;
         }
-        s.max = large;
-        s.min = small;
     }
     else
     {
