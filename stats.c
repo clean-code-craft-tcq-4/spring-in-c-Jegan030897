@@ -51,13 +51,13 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     
 }
 
-void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
+alerter_funcptr check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
 {
     (*alerters[0])(maxThreshold,computedStats);
     (*alerters[1])(maxThreshold,computedStats);
 }
 
-void emailAlerter(float maxThreshold, struct Stats computedStats)
+alerter_funcptr emailAlerter(float maxThreshold, struct Stats computedStats)
 {
     if(computedStats.max > maxThreshold)
     {
